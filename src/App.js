@@ -1,11 +1,12 @@
 import React, { useState, useEffect } from "react";
 import { Routes, Route } from "react-router-dom";
+import axios from "axios";
 import Home from "./components/home";
 import About from "./components/About";
 import Aside from "./components/Aside";
-import HomepageHeader from "./components/HomepageHeader";
+import Clients from "./components/Clients";
 import Services from "./components/Services";
-import axios from "axios";
+import HomepageHeader from "./components/HomepageHeader";
 
 const App = () => {
   const [header, setHeader] = useState([]);
@@ -27,6 +28,7 @@ const App = () => {
         <Route path="/main" element={<HomepageHeader />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
+        <Route path="/clients" element={<Clients />} />
       </Routes>
     </div>
   );
