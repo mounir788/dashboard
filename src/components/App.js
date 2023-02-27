@@ -1,11 +1,11 @@
-import "./App.css";
+import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Home from "./home";
-import Aside from "./Aside";
 import About from "./About";
+import Aside from "./Aside";
 import HomepageHeader from "./HomepageHeader";
 
-function App() {
+const App = () => {
   return (
     <div className="App">
       <Aside />
@@ -16,6 +16,6 @@ function App() {
       </Routes>
     </div>
   );
-}
+};
 
 export default App;

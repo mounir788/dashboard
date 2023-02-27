@@ -1,7 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 
-export const Aside = () => {
+const Aside = () => {
   return (
     <aside>
       <Link to="/" className="logo">
@@ -30,3 +30,5 @@ export const Aside = () => {
     </aside>
   );
 };
+
+export default Aside;

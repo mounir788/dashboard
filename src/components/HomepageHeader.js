@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-export const HomepageHeader = () => {
+const HomepageHeader = () => {
   const [edit, setEdit] = useState(false);
   return (
     <main>
@@ -39,3 +39,5 @@ export const HomepageHeader = () => {
     </main>
   );
 };
+
+export default HomepageHeader;
