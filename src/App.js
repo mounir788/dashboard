@@ -1,9 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
-import Home from "./home";
-import About from "./About";
-import Aside from "./Aside";
-import HomepageHeader from "./HomepageHeader";
+import Home from "./components/home";
+import About from "./components/About";
+import Aside from "./components/Aside";
+import HomepageHeader from "./components/HomepageHeader";
 
 const App = () => {
   return (
