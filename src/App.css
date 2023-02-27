@@ -75,11 +75,22 @@ h2 {
 .App aside {
   gap: 40px;
   width: 20%;
-  padding: 15px;
+  padding: 40px 40px 40px 20px;
   display: flex;
   background: #ffffff;
   box-shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
   flex-direction: column;
+}
+.App aside .logo {
+  width: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  justify-content: flex-start;
+}
+.App aside .logo img {
+  max-width: 50%;
+  box-shadow: none;
 }
 .App aside .nav-links {
   flex: 1;
@@ -89,10 +100,11 @@ h2 {
   padding: 10px;
   color: #000;
 }
-.App aside .nav-links a:hover {
-  background: #e0f3ff;
-  width: 100%;
-  border-radius: 0.25rem;
+.App aside .nav-links a.active {
+  background: linear-gradient(267.28deg, #f1b048 -27.68%, #a36709 129.01%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
 }
 .App main {
   width: 80%;

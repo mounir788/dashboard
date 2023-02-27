@@ -1,30 +1,27 @@
 import React from "react";
-import { Link } from "react-router-dom";
-
+import { Link, NavLink } from "react-router-dom";
+import logo from "../assets/logo.png";
 const Aside = () => {
   return (
     <aside>
       <Link to="/" className="logo">
-        Dashboard
+        <img src={logo} alt="logo" />
       </Link>
       <ul className="nav-links">
         <li>
-          <Link to="/hero">Hero</Link>
+          <NavLink to="/main">الرئيسية</NavLink>
         </li>
         <li>
-          <Link to="/about">About Us</Link>
+          <NavLink to="/about">نبذه عنا</NavLink>
         </li>
         <li>
-          <Link to="/">Option 1</Link>
+          <NavLink to="/services">قسم الخدمات</NavLink>
         </li>
         <li>
-          <Link to="/">Option 1</Link>
+          <NavLink to="/clients">قسم العملاء</NavLink>
         </li>
         <li>
-          <Link to="/">Option 1</Link>
-        </li>
-        <li>
-          <Link to="/">Option 1</Link>
+          <NavLink to="/blogs">قسم المدونات</NavLink>
         </li>
       </ul>
     </aside>

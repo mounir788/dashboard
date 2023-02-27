@@ -96,11 +96,20 @@ h2 {
   aside {
     gap: 40px;
     width: 20%;
-    padding: 15px;
+    padding: 40px 40px 40px 20px;
     display: flex;
     background: $white;
     box-shadow: $shadow;
     flex-direction: column;
+    .logo {
+      width: 100%;
+      @include centerFlex();
+      justify-content: flex-start;
+      img {
+        max-width: 50%;
+        box-shadow: none;
+      }
+    }
     .nav-links {
       flex: 1;
     }
@@ -109,10 +118,8 @@ h2 {
       padding: 10px;
       color: #000;
     }
-    .nav-links a:hover {
-      background: #e0f3ff;
-      width: 100%;
-      border-radius: 0.25rem;
+    .nav-links a.active {
+      @include grad-text();
     }
   }
   main {
