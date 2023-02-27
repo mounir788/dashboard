@@ -23,6 +23,9 @@ const Aside = () => {
         <li>
           <NavLink to="/blogs">قسم المدونات</NavLink>
         </li>
+        <li>
+          <NavLink to="/contact">معلومات الاتصال</NavLink>
+        </li>
       </ul>
     </aside>
   );

@@ -6,8 +6,9 @@ import About from "./components/About";
 import Aside from "./components/Aside";
 import Clients from "./components/Clients";
 import Services from "./components/Services";
-import HomepageHeader from "./components/HomepageHeader";
 import Blogs from "./components/Blogs";
+import Contact from "./components/Contact";
+import HomepageHeader from "./components/HomepageHeader";
 
 const App = () => {
   const [header, setHeader] = useState([]);
@@ -31,6 +32,7 @@ const App = () => {
         <Route path="/services" element={<Services />} />
         <Route path="/clients" element={<Clients />} />
         <Route path="/blogs" element={<Blogs />} />
+        <Route path="/contact" element={<Contact />} />
       </Routes>
     </div>
   );
