@@ -6,31 +6,34 @@ const HomepageHeader = () => {
     <main>
       <div className="wrapper">
         <div className="exist">
-          <h2>Edit the exist</h2>
+          <h2>حذف او تعديل العناصر الحاليه</h2>
           <div className="imgs">
-            <HeaderSlider />
             <HeaderSlider />
           </div>
         </div>
         <div className="add-new">
-          <h2>Add New</h2>
-          <div className="input-box hero-img">
-            <div className="lable">Hero Image</div>
-            <div className="input-row">
-              <input type="file" name="hero-img" id="hero-img" />
-              <button type="submit" className="btn">
-                Add
-              </button>
+          <h2>اضافه عنصر جديد</h2>
+          <form action="" className="input-box hero-img">
+            <div className="file_feild">
+              <p>حمل صوره جديده</p>
+              <input
+                required
+                type="file"
+                name="file"
+                className="file_in"
+                accept="image/*"
+              />
             </div>
-          </div>
-          <div className="input-box hero-text">
-            <div className="lable">Hero Text</div>
-            <div className="input-row">
-              <button type="submit" className="btn">
-                Add
-              </button>
-            </div>
-          </div>
+            <textarea
+              placeholder="اضافه نص"
+              name="hero-text"
+              id="hero-text"
+              rows="2"
+            />
+            <button type="submit" className="btn">
+              اضافه
+            </button>
+          </form>
         </div>
       </div>
     </main>

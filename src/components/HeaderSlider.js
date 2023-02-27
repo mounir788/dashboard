@@ -8,7 +8,10 @@ const HeaderSlider = () => {
       <div className="container">
         <div className="content">
           <img src={dummy} alt="img" />
-          <p>Lorem ipsum dolor sit amet consectetur adipisicing elit.</p>
+          <p>
+            مكتب عمر الطويـان للاستشـارات الإداريـة حاصل على الترخيص المهني رقم
+            15384.
+          </p>
         </div>
         <div className="control-btn">
           <button
@@ -17,16 +20,28 @@ const HeaderSlider = () => {
               setEdit(true);
             }}
           >
-            Edit
+            تعديل
           </button>
-          <button className="delete">Delete</button>
+          <button className="delete">حذف</button>
         </div>
       </div>
       <form action="" className={edit ? "active" : ""}>
-        <label htmlFor="picture">Choose Image</label>
-        <input type="file" name="picture" id="picture" />
-        <label htmlFor="hero-text">Edit Text</label>
-        <textarea name="hero-text" id="hero-text" cols="30" rows="10" />
+        <div className="file_feild">
+          <p>حمل صوره جديده</p>
+          <input
+            required
+            type="file"
+            name="file"
+            className="file_in"
+            accept="image/*"
+          />
+        </div>
+        <textarea
+          placeholder="تعديل النص"
+          name="hero-text"
+          id="hero-text"
+          rows="2"
+        />
         <button
           type="submit"
           className="btn"
@@ -35,7 +50,7 @@ const HeaderSlider = () => {
             setEdit(false);
           }}
         >
-          Submit
+          تعديل
         </button>
       </form>
     </div>
