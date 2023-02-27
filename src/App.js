@@ -7,6 +7,7 @@ import Aside from "./components/Aside";
 import Clients from "./components/Clients";
 import Services from "./components/Services";
 import HomepageHeader from "./components/HomepageHeader";
+import Blogs from "./components/Blogs";
 
 const App = () => {
   const [header, setHeader] = useState([]);
@@ -29,6 +30,7 @@ const App = () => {
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
         <Route path="/clients" element={<Clients />} />
+        <Route path="/blogs" element={<Blogs />} />
       </Routes>
     </div>
   );
