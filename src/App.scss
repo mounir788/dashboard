@@ -1,5 +1,5 @@
 /*****************constants******************/
-@import url('https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Cairo:wght@300;400;500&display=swap");
 $white: #ffffff;
 $black: #000000;
 $gold1: #f1b048;
@@ -45,7 +45,7 @@ $shadow: 0px 0px 5px 0px rgba(0, 0, 0, 0.25);
   box-sizing: border-box;
   scroll-behavior: smooth;
   -webkit-tap-highlight-color: transparent;
-  font-family: 'Cairo', sans-serif;
+  font-family: "Cairo", sans-serif;
 }
 body {
   background-color: $white;
@@ -235,9 +235,13 @@ h2 {
         flex-direction: column;
         gap: 25px;
         form {
+          background: #fff;
+          box-shadow: $shadow;
+          border-radius: 4px;
+          display: flex;
           flex-direction: column;
           gap: 20px;
-          display: flex;
+          padding: 30px;
           .file_feild {
             width: 100%;
             height: 50px;
@@ -267,19 +271,22 @@ h2 {
           }
         }
       }
+      .servUl {
+        li {
+          display: flex;
+          gap: 10px;
+        }
+      }
+      .inputs-group {
+        display: grid;
+        grid-template-columns: repeat(2, 1fr);
+        gap: 30px;
+        row-gap: 20px;
+      }
     }
   }
 }
 
-.input-box {
-  background: #fff;
-  box-shadow: 0 0.46875rem 2.1875rem rgb(4 9 20 / 3%),
-    0 0.9375rem 1.40625rem rgb(4 9 20 / 3%),
-    0 0.25rem 0.53125rem rgb(4 9 20 / 5%), 0 0.125rem 0.1875rem rgb(4 9 20 / 3%);
-  height: fit-content;
-  padding: 20px;
-  border-radius: 4px;
-}
 .lable {
   text-transform: uppercase;
   color: rgba(13, 27, 62, 0.7);
