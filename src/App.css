@@ -154,6 +154,8 @@ input[type=file] {
   cursor: pointer;
   height: -moz-fit-content;
   height: fit-content;
+  width: -moz-fit-content;
+  width: fit-content;
 }
 
 .btn:hover {
@@ -240,4 +242,14 @@ img {
 
 .delete:hover {
   background: rgba(231, 9, 9, 0.8);
+}
+
+form {
+  flex-direction: column;
+  gap: 20px;
+  display: none;
+}
+
+form.active {
+  display: flex;
 }/*# sourceMappingURL=App.css.map */

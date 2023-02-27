@@ -172,6 +172,7 @@ input[type="file"] {
   border-radius: 4px;
   cursor: pointer;
   height: fit-content;
+  width: fit-content;
 }
 .btn:hover {
   background: #3f6ad8e8;
@@ -245,4 +246,12 @@ img {
 }
 .delete:hover {
   background: rgb(231, 9, 9, 0.8);
+}
+form {
+  flex-direction: column;
+  gap: 20px;
+  display: none;
+}
+form.active {
+  display: flex;
 }
