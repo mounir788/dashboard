@@ -4,12 +4,12 @@ import axios from "axios";
 import Home from "./components/home";
 import About from "./components/About";
 import Aside from "./components/Aside";
-import Clients from "./components/Clients";
-import Services from "./components/Services";
 import Blogs from "./components/Blogs";
 import Contact from "./components/Contact";
+import Clients from "./components/Clients";
+import Services from "./components/Services";
+import { ToastContainer } from "react-toastify";
 import HomepageHeader from "./components/HomepageHeader";
-
 const App = () => {
   const [header, setHeader] = useState([]);
   useEffect(() => {
@@ -24,6 +24,7 @@ const App = () => {
   console.log(header);
   return (
     <div className="App">
+      <ToastContainer position="top-right" rtl={true} />
       <Aside />
       <Routes>
         <Route path="/" element={<Home />} />
