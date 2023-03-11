@@ -31,7 +31,7 @@ const App = () => {
   return (
     <div className="App">
       <ToastContainer position="top-right" rtl={true} />
-      {Location === "/login" && <Aside />}
+      <Aside />
       <Routes>
         <Route element={<PrivateRoutes />}>
           <Route path="/" element={<Home />} />
