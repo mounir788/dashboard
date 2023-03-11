@@ -5,12 +5,14 @@ import Home from "./components/home";
 import About from "./components/About";
 import Aside from "./components/Aside";
 import Blogs from "./components/Blogs";
+import Login from "./components/Login";
 import Contact from "./components/Contact";
 import Clients from "./components/Clients";
 import Services from "./components/Services";
-import Login from "./components/Login";
 import { ToastContainer } from "react-toastify";
+import PrivateRoutes from "./utils/PrivateRoutes";
 import HomepageHeader from "./components/HomepageHeader";
+
 const App = () => {
   const [header, setHeader] = useState([]);
   const [clients, setClients] = useState([]);
@@ -29,17 +31,19 @@ const App = () => {
   return (
     <div className="App">
       <ToastContainer position="top-right" rtl={true} />
-      <Login />
-      {/*<Aside />
+      {Location === "/login" && <Aside />}
       <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/main" element={<HomepageHeader slides={header} />} />
-        <Route path="/about" element={<About />} />
-        <Route path="/services" element={<Services />} />
-        <Route path="/clients" element={<Clients clients={clients} />} />
-        <Route path="/blogs" element={<Blogs />} />
-        <Route path="/contact" element={<Contact />} />
-      </Routes>*/}
+        <Route element={<PrivateRoutes />}>
+          <Route path="/" element={<Home />} />
+          <Route path="/main" element={<HomepageHeader slides={header} />} />
+          <Route path="/about" element={<About />} />
+          <Route path="/services" element={<Services />} />
+          <Route path="/clients" element={<Clients clients={clients} />} />
+          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/contact" element={<Contact />} />
+        </Route>
+        <Route path="/login" element={<Login />} />
+      </Routes>
     </div>
   );
 };
