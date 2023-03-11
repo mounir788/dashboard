@@ -1,7 +1,6 @@
 import React, { useState } from "react";
-import dummy from "../assets/home1.jpg";
 
-const HeaderSlider = () => {
+const HeaderSlider = ({ slide }) => {
   const [edit, setEdit] = useState(false);
   const [formData, setFormData] = useState({});
   const handleEdit = () => {
@@ -16,10 +15,15 @@ const HeaderSlider = () => {
     <div className="img">
       <div className="container">
         <div className="content">
-          <img src={dummy} alt="img" />
+          <img
+            src={`http://89.116.236.15/images/${slide.image}`}
+            alt={slide._id}
+          />
           <p>
-            مكتب عمر الطويـان للاستشـارات الإداريـة حاصل على الترخيص المهني رقم
-            15384.
+            {slide.text.ar}
+          </p>
+          <p>
+            {slide.text.en}
           </p>
         </div>
         <div className="control-btn">
@@ -51,6 +55,15 @@ const HeaderSlider = () => {
           id="hero-text"
           name="hero-text"
           placeholder="تعديل النص"
+          onChange={e => setFormData({ ...formData, text: e.target.value })}
+        />
+        <textarea
+          required
+          rows="2"
+          id="hero-text"
+          name="hero-text"
+          style={{ direction: "ltr" }}
+          placeholder="Edit Text"
           onChange={e => setFormData({ ...formData, text: e.target.value })}
         />
         <button type="submit" className="btn">

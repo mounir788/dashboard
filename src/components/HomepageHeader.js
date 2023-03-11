@@ -3,7 +3,7 @@ import HeaderSlider from "./HeaderSlider";
 import { toast } from "react-toastify";
 import axios from "axios";
 
-const HomepageHeader = () => {
+const HomepageHeader = ({ slides }) => {
   const [formData, setFormData] = useState({});
   let headersList = {
     Accept: "/",
@@ -34,7 +34,9 @@ const HomepageHeader = () => {
         <div className="exist">
           <h2>حذف او تعديل العناصر الحاليه</h2>
           <div className="imgs">
-            <HeaderSlider />
+            {slides.map(slide => {
+              return <HeaderSlider key={slide._id} slide={slide} />;
+            })}
           </div>
         </div>
         <div className="add-new">

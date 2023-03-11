@@ -12,26 +12,29 @@ import { ToastContainer } from "react-toastify";
 import HomepageHeader from "./components/HomepageHeader";
 const App = () => {
   const [header, setHeader] = useState([]);
+  const [clients, setClients] = useState([]);
   useEffect(() => {
     const sliderFetch = async () => {
-      let { data } = await axios.get(
-        "https://el-twyan.onrender.com/api/v1/slider"
-      );
+      let { data } = await axios.get("http://89.116.236.15/api/v1/slider");
       setHeader(data.data);
     };
     sliderFetch();
+    const clientsFetch = async () => {
+      let { data } = await axios.get("http://89.116.236.15/api/v1/clients");
+      setClients(data.data);
+    };
+    clientsFetch();
   }, []);
-  console.log(header);
   return (
     <div className="App">
       <ToastContainer position="top-right" rtl={true} />
       <Aside />
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/main" element={<HomepageHeader />} />
+        <Route path="/main" element={<HomepageHeader slides={header} />} />
         <Route path="/about" element={<About />} />
         <Route path="/services" element={<Services />} />
-        <Route path="/clients" element={<Clients />} />
+        <Route path="/clients" element={<Clients clients={clients} />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/contact" element={<Contact />} />
       </Routes>
