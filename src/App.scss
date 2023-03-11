@@ -325,3 +325,36 @@ input {
     object-fit: contain;
   }
 }
+.login {
+  width: 100%;
+  direction: ltr;
+  height: 100vh;
+  @include centerFlex();
+  gap: 50px;
+  flex-direction: column;
+  h1 {
+    @include grad-text();
+    font-size: 2.7rem;
+    line-height: 100px;
+    width: 100%;
+    text-align: center;
+  }
+  form {
+    width: 40%;
+    @include centerFlex();
+    flex-direction: column;
+    gap: 30px;
+    button {
+      width: 200px;
+      height: 45px;
+      margin-top: 20px;
+      background: $gold_gradient2;
+      outline: none;
+      cursor: pointer;
+      color: $white;
+      font-size: 20px;
+      border: none;
+      border-radius: 10px;
+    }
+  }
+}

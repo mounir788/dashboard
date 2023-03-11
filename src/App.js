@@ -8,6 +8,7 @@ import Blogs from "./components/Blogs";
 import Contact from "./components/Contact";
 import Clients from "./components/Clients";
 import Services from "./components/Services";
+import Login from "./components/Login";
 import { ToastContainer } from "react-toastify";
 import HomepageHeader from "./components/HomepageHeader";
 const App = () => {
@@ -28,7 +29,8 @@ const App = () => {
   return (
     <div className="App">
       <ToastContainer position="top-right" rtl={true} />
-      <Aside />
+      <Login />
+      {/*<Aside />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/main" element={<HomepageHeader slides={header} />} />
@@ -37,7 +39,7 @@ const App = () => {
         <Route path="/clients" element={<Clients clients={clients} />} />
         <Route path="/blogs" element={<Blogs />} />
         <Route path="/contact" element={<Contact />} />
-      </Routes>
+      </Routes>*/}
     </div>
   );
 };
