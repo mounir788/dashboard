@@ -7,16 +7,21 @@ const Login = () => {
     Accept: "/"
   };
   let requestOptions = {
-    url: "http://89.116.236.15/api/v1/admin/login",
+    url: "https://test.dummydealer.com/api/v1/admin/login",
     method: "POST",
     headers: headersList,
     data: formData
   };
   const handleSubmit = e => {
     e.preventDefault();
-    axios.request(requestOptions).catch(err => {
-      console.error(err);
-    });
+    axios
+      .request(requestOptions)
+      .then(() => {
+        localStorage.setItem("token", true);
+      })
+      .catch(err => {
+        console.error(err);
+      });
   };
   return (
     <div className="login">
@@ -31,7 +36,7 @@ const Login = () => {
         />
         <input
           required
-          type="password"
+          type="text"
           name="password"
           placeholder="Password"
           onChange={e => setFormData({ ...formData, password: e.target.value })}

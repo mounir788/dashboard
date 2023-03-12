@@ -12,18 +12,25 @@ import Services from "./components/Services";
 import { ToastContainer } from "react-toastify";
 import PrivateRoutes from "./utils/PrivateRoutes";
 import HomepageHeader from "./components/HomepageHeader";
+import Cookies from "js-cookie";
 
 const App = () => {
+  localStorage.setItem("token", false);
+  const token = Cookies.get("access_token");
   const [header, setHeader] = useState([]);
   const [clients, setClients] = useState([]);
   useEffect(() => {
     const sliderFetch = async () => {
-      let { data } = await axios.get("http://89.116.236.15/api/v1/slider");
+      let { data } = await axios.get(
+        "https://test.dummydealer.com/api/v1/slider"
+      );
       setHeader(data.data);
     };
     sliderFetch();
     const clientsFetch = async () => {
-      let { data } = await axios.get("http://89.116.236.15/api/v1/clients");
+      let { data } = await axios.get(
+        "https://test.dummydealer.com/api/v1/clients"
+      );
       setClients(data.data);
     };
     clientsFetch();
@@ -33,7 +40,7 @@ const App = () => {
       <ToastContainer position="top-right" rtl={true} />
       <Aside />
       <Routes>
-        <Route element={<PrivateRoutes />}>
+        <Route element={<PrivateRoutes t={token} />}>
           <Route path="/" element={<Home />} />
           <Route path="/main" element={<HomepageHeader slides={header} />} />
           <Route path="/about" element={<About />} />

@@ -1,6 +1,8 @@
 import React, { useState } from "react";
+import axios from "axios";
+import { toast } from "react-toastify";
 
-const HeaderSlider = ({ slide }) => {
+const HeaderSlider = ({ slide, id }) => {
   const [edit, setEdit] = useState(false);
   const [formData, setFormData] = useState({});
   const handleEdit = () => {
@@ -9,14 +11,41 @@ const HeaderSlider = ({ slide }) => {
   const handleSubmitEdits = e => {
     e.preventDefault();
     setEdit(false);
+    const reader = new FileReader();
+    reader.readAsDataURL(formData.image);
+    reader.onload = () => {
+      const imageDataUrl = reader.result;
+      axios
+        .patch(`https://test.dummydealer.com/api/v1/admin/slider/${id}`, {
+          image: imageDataUrl,
+          text: formData.text
+        })
+        .then(() => {
+          toast.success("تم التعديل بنجاح");
+        })
+        .catch(() => {
+          toast.error("اختار صوره اخرى بحجم اقل");
+        });
+    };
   };
-  const handleDelete = () => {};
+  const handleDelete = async () => {
+    axios
+      .delete(`https://test.dummydealer.com/api/v1/admin/slider/${id}`)
+      .then(() => {
+        document.getElementById("uform").reset();
+        toast.success("تم الحذف بنجاح");
+      })
+      .catch(() => {
+        document.getElementById("uform").reset();
+        toast.error("عذرا حدث خطا حاول مره اخرى");
+      });
+  };
   return (
     <div className="img">
       <div className="container">
         <div className="content">
           <img
-            src={`http://89.116.236.15/images/${slide.image}`}
+            src={`https://test.dummydealer.com/images/${slide.image}`}
             alt={slide._id}
           />
           <p>
@@ -35,7 +64,11 @@ const HeaderSlider = ({ slide }) => {
           </button>
         </div>
       </div>
-      <form onSubmit={handleSubmitEdits} className={edit ? "active" : ""}>
+      <form
+        onSubmit={handleSubmitEdits}
+        id="uform"
+        className={edit ? "active" : ""}
+      >
         <div className="file_feild">
           <p>حمل صوره جديده</p>
           <input
@@ -55,7 +88,11 @@ const HeaderSlider = ({ slide }) => {
           id="hero-text"
           name="hero-text"
           placeholder="تعديل النص"
-          onChange={e => setFormData({ ...formData, text: e.target.value })}
+          onChange={e =>
+            setFormData({
+              ...formData,
+              text: { ...formData.text, ar: e.target.value }
+            })}
         />
         <textarea
           required
@@ -64,7 +101,11 @@ const HeaderSlider = ({ slide }) => {
           name="hero-text"
           style={{ direction: "ltr" }}
           placeholder="Edit Text"
-          onChange={e => setFormData({ ...formData, text: e.target.value })}
+          onChange={e =>
+            setFormData({
+              ...formData,
+              text: { ...formData.text, en: e.target.value }
+            })}
         />
         <button type="submit" className="btn">
           تعديل

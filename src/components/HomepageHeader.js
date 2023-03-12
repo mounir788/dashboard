@@ -10,7 +10,7 @@ const HomepageHeader = ({ slides }) => {
     "Content-Type": "multipart/form-data"
   };
   let requestOptions = {
-    url: "", //home top slider post api
+    url: "https://test.dummydealer.com/api/v1/admin/slider",
     method: "POST",
     headers: headersList,
     data: formData
@@ -35,7 +35,9 @@ const HomepageHeader = ({ slides }) => {
           <h2>حذف او تعديل العناصر الحاليه</h2>
           <div className="imgs">
             {slides.map(slide => {
-              return <HeaderSlider key={slide._id} slide={slide} />;
+              return (
+                <HeaderSlider key={slide._id} id={slide._id} slide={slide} />
+              );
             })}
           </div>
         </div>
@@ -65,7 +67,24 @@ const HomepageHeader = ({ slides }) => {
               name="hero-text"
               id="hero-text"
               placeholder="اضافه نص"
-              onChange={e => setFormData({ ...formData, text: e.target.value })}
+              onChange={e =>
+                setFormData({
+                  ...formData,
+                  text: { ...formData.text, ar: e.target.value }
+                })}
+            />
+            <textarea
+              required
+              rows="2"
+              id="hero-text"
+              name="hero-text"
+              placeholder="Add Text"
+              style={{ direction: "ltr" }}
+              onChange={e =>
+                setFormData({
+                  ...formData,
+                  text: { ...formData.text, en: e.target.value }
+                })}
             />
             <button type="submit" className="btn">
               اضافه
