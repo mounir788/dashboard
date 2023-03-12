@@ -16,7 +16,7 @@ const Client = ({ client, id }) => {
     reader.onload = () => {
       const imageDataUrl = reader.result;
       axios
-        .patch(`https://test.dummydealer.com/api/v1/admin/slider/${id}`, {
+        .patch(`https://test.dummydealer.com/api/v1/admin/client/${id}`, {
           image: imageDataUrl,
           name: formData.name
         })
@@ -30,7 +30,7 @@ const Client = ({ client, id }) => {
   };
   const handleDelete = async () => {
     axios
-      .delete(`https://test.dummydealer.com/api/v1/admin/slider/${id}`)
+      .delete(`https://test.dummydealer.com/api/v1/admin/client/${id}`)
       .then(() => {
         document.getElementById("uform").reset();
         toast.success("تم الحذف بنجاح");
