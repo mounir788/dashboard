@@ -70,7 +70,6 @@ export const Blog = ({ blog, id }) => {
         <div className="file_feild">
           <p>حمل صوره جديده</p>
           <input
-            required
             type="file"
             name="file"
             className="file_in"
@@ -85,7 +84,6 @@ export const Blog = ({ blog, id }) => {
           name="hero-text"
           id="hero-text"
           rows="2"
-          required
           onChange={e =>
             setFormData({
               ...formData,
@@ -98,7 +96,6 @@ export const Blog = ({ blog, id }) => {
           name="hero-text"
           id="hero-text"
           rows="2"
-          required
           onChange={e =>
             setFormData({
               ...formData,
@@ -110,7 +107,6 @@ export const Blog = ({ blog, id }) => {
           name="hero-text"
           id="hero-text"
           rows="2"
-          required
           onChange={e =>
             setFormData({
               ...formData,
@@ -123,7 +119,6 @@ export const Blog = ({ blog, id }) => {
           name="hero-text"
           id="hero-text"
           rows="2"
-          required
           onChange={e =>
             setFormData({
               ...formData,

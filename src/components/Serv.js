@@ -82,7 +82,6 @@ const Serv = ({ service, id }) => {
         <div className="file_feild">
           <p>حمل صوره جديده</p>
           <input
-            required
             type="file"
             name="file"
             className="file_in"
@@ -95,7 +94,6 @@ const Serv = ({ service, id }) => {
         <div className="inputs-group">
           <input
             type="text"
-            required
             placeholder="اضف العنوان"
             onChange={e =>
               setFormData({
@@ -106,7 +104,6 @@ const Serv = ({ service, id }) => {
           <input
             type="text"
             placeholder="Add Title"
-            required
             style={{ direction: "ltr" }}
             onChange={e =>
               setFormData({
@@ -117,7 +114,6 @@ const Serv = ({ service, id }) => {
           <input
             type="text"
             placeholder="اضف العنوان الفرعي"
-            required
             onChange={e =>
               setFormData({
                 ...formData,
@@ -127,7 +123,6 @@ const Serv = ({ service, id }) => {
           <input
             type="text"
             style={{ direction: "ltr" }}
-            required
             placeholder="Add Subtitle"
             onChange={e =>
               setFormData({
@@ -141,7 +136,6 @@ const Serv = ({ service, id }) => {
             placeholder="اضف الوصف"
             name="hero-text"
             id="hero-text"
-            required
             rows="2"
             onChange={e =>
               setFormData({

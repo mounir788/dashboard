@@ -71,7 +71,6 @@ const Client = ({ client, id }) => {
         <div className="file_feild">
           <p>حمل صوره جديده</p>
           <input
-            required
             type="file"
             name="file"
             className="file_in"

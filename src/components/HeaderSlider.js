@@ -72,7 +72,6 @@ const HeaderSlider = ({ slide, id }) => {
         <div className="file_feild">
           <p>حمل صوره جديده</p>
           <input
-            required
             type="file"
             name="file"
             className="file_in"
@@ -83,7 +82,6 @@ const HeaderSlider = ({ slide, id }) => {
           />
         </div>
         <textarea
-          required
           rows="2"
           id="hero-text"
           name="hero-text"
@@ -95,7 +93,6 @@ const HeaderSlider = ({ slide, id }) => {
             })}
         />
         <textarea
-          required
           rows="2"
           id="hero-text"
           name="hero-text"
