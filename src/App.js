@@ -25,6 +25,7 @@ const App = () => {
   const [services, setServices] = useState([]);
   const [contacts, setContacts] = useState([]);
   const [aboutInfo, setAboutInfo] = useState([]);
+  const [newsletter, setNewsletter] = useState([]);
   useEffect(() => {
     const sliderFetch = async () => {
       let { data } = await axios.get(
@@ -82,6 +83,13 @@ const App = () => {
       setApply(data.body);
     };
     applyFetch();
+    const newsFetch = async () => {
+      let { data } = await axios.get(
+        "https://test.dummydealer.com/api/v1/admin/newsletter"
+      );
+      setNewsletter(data.body);
+    };
+    newsFetch();
   }, []);
   return (
     <div className="App">
@@ -89,7 +97,10 @@ const App = () => {
       <Aside />
       <Routes>
         <Route element={<PrivateRoutes t={token} />}>
-          <Route path="/" element={<Home reqs={reqs} apply={apply} />} />
+          <Route
+            path="/"
+            element={<Home reqs={reqs} apply={apply} news={newsletter} />}
+          />
           <Route path="/main" element={<HomepageHeader slides={header} />} />
           <Route path="/about" element={<About info={aboutInfo} />} />
           <Route path="/services" element={<Services services={services} />} />

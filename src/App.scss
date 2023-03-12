@@ -368,6 +368,9 @@ table thead tr th:nth-child(1) {
 table tr {
   padding: 10px 0;
   height: 60px;
+  a {
+    color: #2376da;
+  }
 }
 .del {
   box-shadow: $shadow;
@@ -380,5 +383,11 @@ table tr {
   background: rgb(231, 9, 9);
   &:hover {
     background: rgb(231, 9, 9, 0.8);
+  }
+}
+ol li {
+  margin-bottom: 5px;
+  a {
+    color: #000;
   }
 }

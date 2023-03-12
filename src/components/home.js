@@ -1,8 +1,8 @@
 import React from "react";
 import axios from "axios";
 import { toast } from "react-toastify";
-
-const Home = ({ reqs, apply }) => {
+import { Table } from "reactstrap";
+const Home = ({ reqs, apply, news }) => {
   const handleDelete = async id => {
     axios
       .delete(`https://test.dummydealer.com/api/v1/admin/request/${id}`)
@@ -27,7 +27,7 @@ const Home = ({ reqs, apply }) => {
     <main>
       <div className="wrapper">
         <h2>قائمه الطلبات</h2>
-        <table>
+        <Table>
           <thead>
             <tr>
               <th>الاسم</th>
@@ -71,9 +71,9 @@ const Home = ({ reqs, apply }) => {
               );
             })}
           </tbody>
-        </table>
+        </Table>
         <h2>قائمه المتقدمين للوظائف</h2>
-        <table>
+        <Table>
           <thead>
             <tr>
               <th>الاسم</th>
@@ -99,7 +99,7 @@ const Home = ({ reqs, apply }) => {
                   </td>
                   <td>
                     <a
-                      href={`https://test.dummydealer.com/images/${app.resume}`}
+                      href={`https://test.dummydealer.com/resumes/${app.resume}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >
@@ -123,7 +123,19 @@ const Home = ({ reqs, apply }) => {
               );
             })}
           </tbody>
-        </table>
+        </Table>
+        <h2>قائمة الاشتراكات فى النشره البريدية</h2>
+        <ol>
+          {news.map(n => {
+            return (
+              <li>
+                <a href={`mailto:${n.email}`}>
+                  {n.email}
+                </a>
+              </li>
+            );
+          })}
+        </ol>
       </div>
     </main>
   );
