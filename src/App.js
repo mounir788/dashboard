@@ -17,7 +17,9 @@ import Cookies from "js-cookie";
 const App = () => {
   localStorage.setItem("token", false);
   const token = Cookies.get("access_token");
+  const [reqs, setReqs] = useState([]);
   const [blogs, setBlogs] = useState([]);
+  const [apply, setApply] = useState([]);
   const [header, setHeader] = useState([]);
   const [clients, setClients] = useState([]);
   const [services, setServices] = useState([]);
@@ -66,6 +68,20 @@ const App = () => {
       setContacts(data.data);
     };
     ContactFetch();
+    const requestsFetch = async () => {
+      let { data } = await axios.get(
+        "https://test.dummydealer.com/api/v1/admin/request"
+      );
+      setReqs(data.body);
+    };
+    requestsFetch();
+    const applyFetch = async () => {
+      let { data } = await axios.get(
+        "https://test.dummydealer.com/api/v1/admin/apply"
+      );
+      setApply(data.body);
+    };
+    applyFetch();
   }, []);
   return (
     <div className="App">
@@ -73,7 +89,7 @@ const App = () => {
       <Aside />
       <Routes>
         <Route element={<PrivateRoutes t={token} />}>
-          <Route path="/" element={<Home />} />
+          <Route path="/" element={<Home reqs={reqs} apply={apply} />} />
           <Route path="/main" element={<HomepageHeader slides={header} />} />
           <Route path="/about" element={<About info={aboutInfo} />} />
           <Route path="/services" element={<Services services={services} />} />

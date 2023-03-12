@@ -358,3 +358,27 @@ input {
     }
   }
 }
+table thead tr th,
+td {
+  text-align: center;
+}
+table thead tr th:nth-child(1) {
+  text-align: inherit;
+}
+table tr {
+  padding: 10px 0;
+  height: 60px;
+}
+.del {
+  box-shadow: $shadow;
+  color: #fff;
+  border: none;
+  padding: 0 10px;
+  border-radius: 4px;
+  cursor: pointer;
+  height: fit-content;
+  background: rgb(231, 9, 9);
+  &:hover {
+    background: rgb(231, 9, 9, 0.8);
+  }
+}
