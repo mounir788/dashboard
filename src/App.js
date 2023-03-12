@@ -19,6 +19,7 @@ const App = () => {
   const token = Cookies.get("access_token");
   const [header, setHeader] = useState([]);
   const [clients, setClients] = useState([]);
+  const [blogs, setBlogs] = useState([]);
   useEffect(() => {
     const sliderFetch = async () => {
       let { data } = await axios.get(
@@ -34,6 +35,13 @@ const App = () => {
       setClients(data.data);
     };
     clientsFetch();
+    const blogsFetch = async () => {
+      let { data } = await axios.get(
+        "https://test.dummydealer.com/api/v1/blogs"
+      );
+      setBlogs(data.data);
+    };
+    blogsFetch();
   }, []);
   return (
     <div className="App">
@@ -46,7 +54,7 @@ const App = () => {
           <Route path="/about" element={<About />} />
           <Route path="/services" element={<Services />} />
           <Route path="/clients" element={<Clients clients={clients} />} />
-          <Route path="/blogs" element={<Blogs />} />
+          <Route path="/blogs" element={<Blogs blogs={blogs} />} />
           <Route path="/contact" element={<Contact />} />
         </Route>
         <Route path="/login" element={<Login />} />
