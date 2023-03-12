@@ -21,6 +21,7 @@ const App = () => {
   const [header, setHeader] = useState([]);
   const [clients, setClients] = useState([]);
   const [services, setServices] = useState([]);
+  const [contacts, setContacts] = useState([]);
   const [aboutInfo, setAboutInfo] = useState([]);
   useEffect(() => {
     const sliderFetch = async () => {
@@ -58,6 +59,13 @@ const App = () => {
       setAboutInfo(data.data);
     };
     AboutFetch();
+    const ContactFetch = async () => {
+      let { data } = await axios.get(
+        "https://test.dummydealer.com/api/v1/contacts"
+      );
+      setContacts(data.data);
+    };
+    ContactFetch();
   }, []);
   return (
     <div className="App">
@@ -71,7 +79,10 @@ const App = () => {
           <Route path="/services" element={<Services services={services} />} />
           <Route path="/clients" element={<Clients clients={clients} />} />
           <Route path="/blogs" element={<Blogs blogs={blogs} />} />
-          <Route path="/contact" element={<Contact />} />
+          <Route
+            path="/contact"
+            element={<Contact contacts={contacts} id={contacts._id} />}
+          />
         </Route>
         <Route path="/login" element={<Login />} />
       </Routes>
