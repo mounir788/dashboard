@@ -5,7 +5,7 @@ import { Table } from "reactstrap";
 const Home = ({ reqs, apply, news }) => {
   const handleDelete = async id => {
     axios
-      .delete(`https://test.dummydealer.com/api/v1/admin/request/${id}`)
+      .delete(`https://api.tawyanoffice.com/api/v1/admin/request/${id}`)
       .then(() => {
         toast.success("تم الحذف بنجاح");
       })
@@ -15,7 +15,7 @@ const Home = ({ reqs, apply, news }) => {
   };
   const handleDelete2 = async id => {
     axios
-      .delete(`https://test.dummydealer.com/api/v1/admin/apply/${id}`)
+      .delete(`https://api.tawyanoffice.com/api/v1/admin/apply/${id}`)
       .then(() => {
         toast.success("تم الحذف بنجاح");
       })
@@ -99,7 +99,7 @@ const Home = ({ reqs, apply, news }) => {
                   </td>
                   <td>
                     <a
-                      href={`https://test.dummydealer.com/resumes/${app.resume}`}
+                      href={`https://api.tawyanoffice.com/resumes/${app.resume}`}
                       target="_blank"
                       rel="noopener noreferrer"
                     >

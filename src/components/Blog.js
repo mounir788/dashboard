@@ -16,7 +16,7 @@ export const Blog = ({ blog, id }) => {
     reader.onload = () => {
       const imageDataUrl = reader.result;
       axios
-        .patch(`https://test.dummydealer.com/api/v1/admin/blog/${id}`, {
+        .patch(`https://api.tawyanoffice.com/api/v1/admin/blog/${id}`, {
           image: imageDataUrl,
           title: formData.title,
           description: formData.description
@@ -31,7 +31,7 @@ export const Blog = ({ blog, id }) => {
   };
   const handleDelete = async () => {
     axios
-      .delete(`https://test.dummydealer.com/api/v1/admin/blog/${id}`)
+      .delete(`https://api.tawyanoffice.com/api/v1/admin/blog/${id}`)
       .then(() => {
         document.getElementById("uform").reset();
         toast.success("تم الحذف بنجاح");
@@ -46,7 +46,7 @@ export const Blog = ({ blog, id }) => {
       <div className="container">
         <div className="content">
           <img
-            src={`https://test.dummydealer.com/images/${blog.image}`}
+            src={`https://api.tawyanoffice.com/images/${blog.image}`}
             alt={blog.name}
           />
           <p>

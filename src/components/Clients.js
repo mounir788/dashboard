@@ -10,7 +10,7 @@ const Clients = ({ clients }) => {
     "Content-Type": "multipart/form-data"
   };
   let requestOptions = {
-    url: "https://test.dummydealer.com/api/v1/admin/client",
+    url: "https://api.tawyanoffice.com/api/v1/admin/client",
     method: "POST",
     headers: headersList,
     data: formData

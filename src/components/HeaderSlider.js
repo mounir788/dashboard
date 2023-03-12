@@ -16,7 +16,7 @@ const HeaderSlider = ({ slide, id }) => {
     reader.onload = () => {
       const imageDataUrl = reader.result;
       axios
-        .patch(`https://test.dummydealer.com/api/v1/admin/slider/${id}`, {
+        .patch(`https://api.tawyanoffice.com/api/v1/admin/slider/${id}`, {
           image: imageDataUrl,
           text: formData.text
         })
@@ -30,7 +30,7 @@ const HeaderSlider = ({ slide, id }) => {
   };
   const handleDelete = async () => {
     axios
-      .delete(`https://test.dummydealer.com/api/v1/admin/slider/${id}`)
+      .delete(`https://api.tawyanoffice.com/api/v1/admin/slider/${id}`)
       .then(() => {
         document.getElementById("uform").reset();
         toast.success("تم الحذف بنجاح");
@@ -45,7 +45,7 @@ const HeaderSlider = ({ slide, id }) => {
       <div className="container">
         <div className="content">
           <img
-            src={`https://test.dummydealer.com/images/${slide.image}`}
+            src={`https://api.tawyanoffice.com/images/${slide.image}`}
             alt={slide._id}
           />
           <p>

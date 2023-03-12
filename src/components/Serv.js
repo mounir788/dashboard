@@ -8,31 +8,30 @@ const Serv = ({ service, id }) => {
   const handleEdit = () => {
     setEdit(true);
   };
+  let headersList = {
+    Accept: "/"
+  };
+  let reqOptions = {
+    url: `https://api.tawyanoffice.com/api/v1/admin/service/${id}`,
+    method: "PATCH",
+    headers: headersList,
+    data: formData
+  };
   const handleSubmitEdits = e => {
     e.preventDefault();
     setEdit(false);
-    const reader = new FileReader();
-    reader.readAsDataURL(formData.image);
-    reader.onload = () => {
-      const imageDataUrl = reader.result;
-      axios
-        .patch(`https://test.dummydealer.com/api/v1/admin/service/${id}`, {
-          image: imageDataUrl,
-          title: formData.title,
-          subTitle: formData.subTitle,
-          description: formData.description
-        })
-        .then(() => {
-          toast.success("تم التعديل بنجاح");
-        })
-        .catch(() => {
-          toast.error("اختار صوره اخرى بحجم اقل");
-        });
-    };
+    axios
+      .request(reqOptions)
+      .then(() => {
+        toast.success("تم التعديل بنجاح");
+      })
+      .catch(() => {
+        toast.error("اختار صوره اخرى بحجم اقل");
+      });
   };
   const handleDelete = async () => {
     axios
-      .delete(`https://test.dummydealer.com/api/v1/admin/service/${id}`)
+      .delete(`https://api.tawyanoffice.com/api/v1/admin/service/${id}`)
       .then(() => {
         document.getElementById("uform").reset();
         toast.success("تم الحذف بنجاح");
@@ -47,7 +46,7 @@ const Serv = ({ service, id }) => {
       <div className="container">
         <div className="content">
           <img
-            src={`https://test.dummydealer.com/images/${service.image}`}
+            src={`https://api.tawyanoffice.com/images/${service.image}`}
             alt={service.name}
           />
           <ul className="servUl">

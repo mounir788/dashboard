@@ -13,7 +13,7 @@ const AboutCard = ({ id, infoo }) => {
     setEdit(false);
     axios
       .patch(
-        `https://test.dummydealer.com/api/v1/admin/information/${id}`,
+        `https://api.tawyanoffice.com/api/v1/admin/information/${id}`,
         formData
       )
       .then(() => {

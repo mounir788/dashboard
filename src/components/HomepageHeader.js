@@ -10,7 +10,7 @@ const HomepageHeader = ({ slides }) => {
     "Content-Type": "multipart/form-data"
   };
   let requestOptions = {
-    url: "https://test.dummydealer.com/api/v1/admin/slider",
+    url: "https://api.tawyanoffice.com/api/v1/admin/slider",
     method: "POST",
     headers: headersList,
     data: formData

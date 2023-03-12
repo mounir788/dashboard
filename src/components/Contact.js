@@ -13,7 +13,7 @@ const Contact = ({ contacts, id }) => {
     e.preventDefault();
     setEdit(false);
     axios
-      .patch(`https://test.dummydealer.com/api/v1/admin/client/${id}`, {
+      .patch(`https://api.tawyanoffice.com/api/v1/admin/contacts/${id}`, {
         ...contacts,
         email: email
       })
@@ -30,7 +30,7 @@ const Contact = ({ contacts, id }) => {
     e.preventDefault();
     setEditTel(false);
     axios
-      .patch(`https://test.dummydealer.com/api/v1/admin/client/${id}`, {
+      .patch(`https://api.tawyanoffice.com/api/v1/admin/contacts/${id}`, {
         ...contacts,
         mainPhone: mainPhone,
       })
@@ -47,7 +47,7 @@ const Contact = ({ contacts, id }) => {
     e.preventDefault();
     setEditTel2(false);
     axios
-      .patch(`https://test.dummydealer.com/api/v1/admin/client/${id}`, {
+      .patch(`https://api.tawyanoffice.com/api/v1/admin/contacts/${id}`, {
         ...contacts,
         subPhone: subPhone
       })
@@ -64,7 +64,7 @@ const Contact = ({ contacts, id }) => {
     e.preventDefault();
     setAddress(false);
     axios
-      .patch(`https://test.dummydealer.com/api/v1/admin/client/${id}`, {
+      .patch(`https://api.tawyanoffice.com/api/v1/admin/contacts/${id}`, {
         ...contacts,
         address: addressInfo.address
       })
@@ -216,6 +216,7 @@ const Contact = ({ contacts, id }) => {
                 className={address ? "active" : ""}
               >
                 <textarea
+                  required
                   placeholder="تعديل العنوان"
                   name="adress"
                   id="address"
@@ -231,6 +232,7 @@ const Contact = ({ contacts, id }) => {
                   style={{ direction: "ltr" }}
                   name="adress"
                   id="address"
+                  required
                   rows="2"
                   onChange={e =>
                     setAddressInfo({

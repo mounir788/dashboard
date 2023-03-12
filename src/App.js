@@ -29,63 +29,63 @@ const App = () => {
   useEffect(() => {
     const sliderFetch = async () => {
       let { data } = await axios.get(
-        "https://test.dummydealer.com/api/v1/slider"
+        "https://api.tawyanoffice.com/api/v1/slider"
       );
       setHeader(data.data);
     };
     sliderFetch();
     const clientsFetch = async () => {
       let { data } = await axios.get(
-        "https://test.dummydealer.com/api/v1/clients"
+        "https://api.tawyanoffice.com/api/v1/clients"
       );
       setClients(data.data);
     };
     clientsFetch();
     const blogsFetch = async () => {
       let { data } = await axios.get(
-        "https://test.dummydealer.com/api/v1/blogs"
+        "https://api.tawyanoffice.com/api/v1/blogs"
       );
       setBlogs(data.data);
     };
     blogsFetch();
     const servicesFetch = async () => {
       let { data } = await axios.get(
-        "https://test.dummydealer.com/api/v1/services"
+        "https://api.tawyanoffice.com/api/v1/services"
       );
       setServices(data.data);
     };
     servicesFetch();
     const AboutFetch = async () => {
       let { data } = await axios.get(
-        "https://test.dummydealer.com/api/v1/information"
+        "https://api.tawyanoffice.com/api/v1/information"
       );
       setAboutInfo(data.data);
     };
     AboutFetch();
     const ContactFetch = async () => {
       let { data } = await axios.get(
-        "https://test.dummydealer.com/api/v1/contacts"
+        "https://api.tawyanoffice.com/api/v1/contacts"
       );
       setContacts(data.data);
     };
     ContactFetch();
     const requestsFetch = async () => {
       let { data } = await axios.get(
-        "https://test.dummydealer.com/api/v1/admin/request"
+        "https://api.tawyanoffice.com/api/v1/admin/request"
       );
       setReqs(data.body);
     };
     requestsFetch();
     const applyFetch = async () => {
       let { data } = await axios.get(
-        "https://test.dummydealer.com/api/v1/admin/apply"
+        "https://api.tawyanoffice.com/api/v1/admin/apply"
       );
       setApply(data.body);
     };
     applyFetch();
     const newsFetch = async () => {
       let { data } = await axios.get(
-        "https://test.dummydealer.com/api/v1/admin/newsletter"
+        "https://api.tawyanoffice.com/api/v1/admin/newsletter"
       );
       setNewsletter(data.body);
     };

@@ -10,7 +10,7 @@ const Blogs = ({ blogs }) => {
     "Content-Type": "multipart/form-data"
   };
   let requestOptions = {
-    url: "https://test.dummydealer.com/api/v1/admin/blog",
+    url: "https://api.tawyanoffice.com/api/v1/admin/blog",
     method: "POST",
     headers: headersList,
     data: formData
